@@ -4,11 +4,22 @@ public class Pila {
 
     private Nodo nuevo = null;
 
-    public void apilar(Nodo pila, Object Dato) {
-        Nodo NodoAux = nuevo;
+    public void apilar(Object Dato) {
+        Nodo NodoAux = new Nodo();
         NodoAux.setDato(Dato);
-        NodoAux.setSiguiente(pila.getTope());
-        pila.setTope(NodoAux);
+        NodoAux.setTope(nuevo);
+    }
+
+    public Object desapilar() {
+        Nodo NodoAux = new Nodo();
+        NodoAux.setDato(nuevo.getDato());
+        nuevo.setTope(nuevo.getSiguiente());
+        return NodoAux.getDato();
+    }
+
+    public String mostrar() {
+        Nodo nuevo;
+        return "a";
     }
 
 }

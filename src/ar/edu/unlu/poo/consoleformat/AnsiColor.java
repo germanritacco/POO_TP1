@@ -1,3 +1,5 @@
+package ar.edu.unlu.poo.consoleformat;
+
 public enum AnsiColor {
     RESET("\u001B[0m"),
     BOLD("\u001B[1m"),

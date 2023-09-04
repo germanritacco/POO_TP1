@@ -2,6 +2,8 @@ package ar.edu.unlu.poo.listadetareas;
 
 import java.time.LocalDate;
 
+import ar.edu.unlu.poo.consoleformat.*;
+
 public class Tarea {
     private String descripcion;
     private String prioridad;
@@ -35,12 +37,31 @@ public class Tarea {
         return estado;
     }
 
+    public String getPrioridad() {
+        return prioridad;
+    }
+
+    public LocalDate getFechaLimite() {
+        return fechaLimite;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void marcarComoCompleta() {
+        this.estado = true; // Establecer el estado como completo
+    }
+
     public String mostrarTarea() {
-        if (getEstado()) {
-            return "(Vencida) " + descripcion;
-        } else {
-            return descripcion;
+        String mensaje = "";
+        if (getTareaVencida()) {
+            mensaje = AnsiColor.RED + "(Vencida)";
         }
+        mensaje += AnsiColor.BLUE + "" + AnsiColor.BOLD + " Descripción: " + AnsiColor.YELLOW + descripcion + "\n";
+        mensaje += AnsiColor.BLUE + "" + AnsiColor.BOLD + " Prioridad: " + AnsiColor.YELLOW + prioridad + "\n";
+        mensaje += AnsiColor.BLUE + "" + AnsiColor.BOLD + " Fecha de vencimiento: " + AnsiColor.YELLOW + fechaLimite + "\n";
+        return mensaje;
     }
 
 }

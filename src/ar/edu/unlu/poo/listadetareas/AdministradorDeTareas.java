@@ -2,11 +2,9 @@ package ar.edu.unlu.poo.listadetareas;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import ar.edu.unlu.poo.consoleformat.*;
+import java.util.Comparator;
 
 public class AdministradorDeTareas {
 
@@ -24,15 +22,8 @@ public class AdministradorDeTareas {
         LocalDate fechaActual = LocalDate.now();
         return listaDeTareas.stream()
                 .filter(tarea -> !tarea.getTareaVencida() && !tarea.getEstado())
-                .sorted((tarea1, tarea2) -> {
-                    // Ordenar primero por prioridad
-                    int tareaConPrioridad = tarea1.getPrioridad().compareTo(tarea2.getPrioridad());
-                    if (tareaConPrioridad != 0) {
-                        return tareaConPrioridad;
-                    }
-                    // Ordenar luego por fecha de vencimiento
-                    return tarea1.getFechaLimite().compareTo(tarea2.getFechaLimite());
-                })
+                .sorted(Comparator.comparing(Tarea::getPrioridad)
+                        .thenComparing(Tarea::getFechaLimite))
                 .collect(Collectors.toList());
     }
 
@@ -47,9 +38,9 @@ public class AdministradorDeTareas {
         String mensaje = "";
         if (tarea != null) {
             tarea.marcarComoCompleta();
-            mensaje = "Tarea '" + tarea.getDescripcion() + "' completada exitosamente!";
+            mensaje = "Tarea '" + tarea.getDescripcion() + "' completada exitosamente! \n";
         } else {
-            mensaje = "Error al procesar la tarea";
+            mensaje = "Error al procesar la tarea \n";
         }
         return mensaje;
     }

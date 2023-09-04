@@ -1,5 +1,6 @@
 package ar.edu.unlu.poo.listadetareas;
 
+import ar.edu.unlu.poo.consoleformat.AnsiColor;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,9 +24,10 @@ public class Ejercicio12 {
         administrador.agregarTarea(tarea5);
 
         // Marcar una tarea como realizada
-        System.out.println(administrador.marcarTareaComoRealizada(tarea2));
+        System.out.println(AnsiColor.YELLOW + administrador.marcarTareaComoRealizada(tarea2));
 
         // Obtener y mostrar tareas no vencidas ordenadas
+        System.out.println(AnsiColor.MAGENTA + "Tareas no vencidas, ordenadas por prioridad y fecha de vencimiento: \n");
         List<Tarea> tareasNoVencidas = administrador.obtenerTareasNoVencidasOrdenadas();
         for (Tarea tarea : tareasNoVencidas) {
             System.out.println(tarea.mostrarTarea());

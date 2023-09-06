@@ -4,32 +4,27 @@ public class Nodo {
 
     private Object dato;
 
-    private Nodo siguiente = null;
+    private Nodo siguiente;
 
-    private Nodo tope = null;
-
-    public void setDato(Object dato) {
-        this.dato = dato;
+    public Nodo(Object datos) {
+        this.dato = datos;
+        this.siguiente = null;
     }
 
-    public void setSiguiente(Nodo nodo) {
-        this.siguiente = nodo;
-    }
-
-    public void setTope(Nodo nodo) {
-        this.tope = nodo;
-    }
-
-    public Object getDato() {
+    public Object getDatos() {
         return dato;
     }
 
-    public Nodo getTope() {
-        return tope;
+    public void setDatos(Object datos) {
+        this.dato = datos;
     }
 
     public Nodo getSiguiente() {
         return siguiente;
+    }
+
+    public void setSiguiente(Nodo siguiente) {
+        this.siguiente = siguiente;
     }
 
 }

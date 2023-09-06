@@ -53,7 +53,7 @@ public class Tarea {
         this.estado = true; // Establecer el estado como completo
     }
 
-    public String mostrarTarea() {
+    public String toString() {
         String mensaje = "";
         if (getTareaVencida()) {
             mensaje = AnsiColor.RED + "(Vencida)";

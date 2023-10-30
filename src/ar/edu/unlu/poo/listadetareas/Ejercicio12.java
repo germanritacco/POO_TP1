@@ -30,7 +30,7 @@ public class Ejercicio12 {
         System.out.println(AnsiColor.MAGENTA + "Tareas no vencidas, ordenadas por prioridad y fecha de vencimiento: \n");
         List<Tarea> tareasNoVencidas = administrador.obtenerTareasNoVencidasOrdenadas();
         for (Tarea tarea : tareasNoVencidas) {
-            System.out.println(tarea.mostrarTarea());
+            System.out.println(tarea.toString());
         }
     }
 }
